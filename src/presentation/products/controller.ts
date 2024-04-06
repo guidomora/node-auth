@@ -41,6 +41,5 @@ export class ProductController {
             .then(products => res.status(200).json(products))
             .catch(error => this.handleError(error, res));
 
-        return res.json('getProducts');
     }
 }
