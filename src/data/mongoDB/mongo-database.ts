@@ -6,7 +6,7 @@ interface ConnectionOptions {
 }
 
 export class MongoDatabase {
-    static async connect(options: ConnectionOptions){
+    static async connect(options: ConnectionOptions) {
         const { mongoUrl, dbName } = options;
         try {
             await mongoose.connect(mongoUrl, {
@@ -16,7 +16,11 @@ export class MongoDatabase {
         } catch (error) {
             console.log('Mongo connection error');
             throw error;
-            
+
         }
+    }
+
+    static async disconnect() {
+        await mongoose.disconnect();
     }
 }

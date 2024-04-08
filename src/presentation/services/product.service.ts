@@ -32,6 +32,7 @@ export class ProductService {
                 // saltar una cantidad de registros, arranca en 0 por defecto (el 0 seria la pagina 1), por eso restamos 1
                 .skip((page - 1) * limit) // se multiplica por el limite para que salte la cantidad de registros que queremos
                 .limit(limit) // limitamos la cantidad de registros que nos devuelve
+                .populate('user') // para que nos devuelva toda la info del usuario relacionada con el producto
 
             return {
                 page, // devolvemos la pagina actual

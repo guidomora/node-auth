@@ -10,43 +10,9 @@ Cada paso de su configuración ya se ha realizado previamente en el curso, por l
 1. Clonar .env.template a .env y configurar las variables de entorno
 2. Ejecutar `npm install` para instalar las dependencias
 3. En caso de necesitar base de datos, configurar el docker-compose.yml y ejecutar `docker-compose up -d` para levantar los servicios deseados.
-4. Ejecutar `npm run dev` para levantar el proyecto en modo desarrollo
+4. Para poblar la base de datos ejecutar `npm run seed`
+5. Ejecutar `npm run dev` para levantar el proyecto en modo desarrollo
 
 
 La ruta llama al controlador y el controlador al servicio
 
-
-
-## Structure
-Config ---> packages and adapters
-|
-|    bcrypt ---> password encryption
-|    regular-exp ---> email validation
-|    envs ---> env configuration
-|    jwt.adapter ---> JWT
-|
-Presentation
-|    Auth -----> Authentication
-|        controller ----> gives response to the client, handdlers
-|        routes     ----> routes defined
-|    Services
-         auth.service ---> handles the state of the authenticated user
-         email.service --->
-Data
-|    mongoDB
-|        mongo-database ---> connection with mongo using mongoose
-|         models
-|            user.models ---> user model mongoose
-|
-Domain -----> rules that will domain in our app
-|   errors
-|       custom.errors ---> customized errors
-|   entities
-|       user.entity ---> when returning a user we wont return our mongoose model, instead we return user entity
-|
-|   dtos ---> they make sure that we can trust the properties of that object
-|       auth
-|           register-user.dto
-|           login-user.dto
-|           
-|
